@@ -1,0 +1,101 @@
+Image,Model,Train_Size,Prediction,Confidence
+fall1.jpg,SimpleCNN,1000,Fall,0.9992
+fall2.jpg,SimpleCNN,1000,No Fall,0.7510
+fall3.jpg,SimpleCNN,1000,No Fall,0.8998
+fall4.jpg,SimpleCNN,1000,No Fall,1.0000
+fall5.jpg,SimpleCNN,1000,No Fall,1.0000
+no_fall1.jpg,SimpleCNN,1000,Fall,0.8694
+no_fall2.jpg,SimpleCNN,1000,No Fall,0.8214
+no_fall3.jpg,SimpleCNN,1000,No Fall,0.9997
+no_fall4.jpg,SimpleCNN,1000,No Fall,0.9871
+no_fall5.jpg,SimpleCNN,1000,Fall,0.9994
+fall1.jpg,SimpleCNN,500,Fall,1.0000
+fall2.jpg,SimpleCNN,500,No Fall,0.9986
+fall3.jpg,SimpleCNN,500,Fall,0.9982
+fall4.jpg,SimpleCNN,500,No Fall,1.0000
+fall5.jpg,SimpleCNN,500,No Fall,0.9898
+no_fall1.jpg,SimpleCNN,500,Fall,0.9825
+no_fall2.jpg,SimpleCNN,500,No Fall,0.9885
+no_fall3.jpg,SimpleCNN,500,Fall,0.9694
+no_fall4.jpg,SimpleCNN,500,No Fall,0.9959
+no_fall5.jpg,SimpleCNN,500,Fall,0.9914
+fall1.jpg,ComplexCNN,1000,Fall,0.7429
+fall2.jpg,ComplexCNN,1000,No Fall,0.6464
+fall3.jpg,ComplexCNN,1000,Fall,0.6538
+fall4.jpg,ComplexCNN,1000,No Fall,0.9786
+fall5.jpg,ComplexCNN,1000,No Fall,1.0000
+no_fall1.jpg,ComplexCNN,1000,No Fall,0.5601
+no_fall2.jpg,ComplexCNN,1000,No Fall,0.8567
+no_fall3.jpg,ComplexCNN,1000,No Fall,0.5904
+no_fall4.jpg,ComplexCNN,1000,No Fall,0.9486
+no_fall5.jpg,ComplexCNN,1000,No Fall,0.5291
+fall1.jpg,ComplexCNN,500,Fall,0.9978
+fall2.jpg,ComplexCNN,500,No Fall,0.8072
+fall3.jpg,ComplexCNN,500,Fall,0.7851
+fall4.jpg,ComplexCNN,500,No Fall,0.9925
+fall5.jpg,ComplexCNN,500,No Fall,0.8232
+no_fall1.jpg,ComplexCNN,500,No Fall,0.5639
+no_fall2.jpg,ComplexCNN,500,No Fall,0.5361
+no_fall3.jpg,ComplexCNN,500,Fall,0.8290
+no_fall4.jpg,ComplexCNN,500,Fall,0.9801
+no_fall5.jpg,ComplexCNN,500,Fall,0.9456
+fall1.jpg,ResNet18,1000,No Fall,0.9892
+fall2.jpg,ResNet18,1000,No Fall,0.9071
+fall3.jpg,ResNet18,1000,Fall,0.8006
+fall4.jpg,ResNet18,1000,No Fall,0.9993
+fall5.jpg,ResNet18,1000,No Fall,0.9918
+no_fall1.jpg,ResNet18,1000,Fall,0.9865
+no_fall2.jpg,ResNet18,1000,Fall,0.9747
+no_fall3.jpg,ResNet18,1000,Fall,0.8814
+no_fall4.jpg,ResNet18,1000,Fall,0.8963
+no_fall5.jpg,ResNet18,1000,Fall,0.7036
+fall1.jpg,ResNet18,500,No Fall,0.9670
+fall2.jpg,ResNet18,500,Fall,0.5601
+fall3.jpg,ResNet18,500,No Fall,0.5478
+fall4.jpg,ResNet18,500,No Fall,0.9989
+fall5.jpg,ResNet18,500,No Fall,0.9749
+no_fall1.jpg,ResNet18,500,Fall,0.9931
+no_fall2.jpg,ResNet18,500,Fall,0.9864
+no_fall3.jpg,ResNet18,500,Fall,0.8817
+no_fall4.jpg,ResNet18,500,No Fall,0.5394
+no_fall5.jpg,ResNet18,500,Fall,0.8867
+fall1.jpg,EfficientNetB0,1000,Fall,0.6123
+fall2.jpg,EfficientNetB0,1000,No Fall,0.9792
+fall3.jpg,EfficientNetB0,1000,Fall,0.8544
+fall4.jpg,EfficientNetB0,1000,No Fall,0.9604
+fall5.jpg,EfficientNetB0,1000,No Fall,0.9744
+no_fall1.jpg,EfficientNetB0,1000,Fall,0.9759
+no_fall2.jpg,EfficientNetB0,1000,Fall,0.9831
+no_fall3.jpg,EfficientNetB0,1000,Fall,0.8268
+no_fall4.jpg,EfficientNetB0,1000,Fall,0.7175
+no_fall5.jpg,EfficientNetB0,1000,Fall,0.9526
+fall1.jpg,EfficientNetB0,500,No Fall,0.6148
+fall2.jpg,EfficientNetB0,500,No Fall,0.9863
+fall3.jpg,EfficientNetB0,500,No Fall,0.5159
+fall4.jpg,EfficientNetB0,500,No Fall,0.9961
+fall5.jpg,EfficientNetB0,500,No Fall,0.8631
+no_fall1.jpg,EfficientNetB0,500,Fall,0.9701
+no_fall2.jpg,EfficientNetB0,500,Fall,0.9164
+no_fall3.jpg,EfficientNetB0,500,Fall,0.7789
+no_fall4.jpg,EfficientNetB0,500,Fall,0.9423
+no_fall5.jpg,EfficientNetB0,500,Fall,0.9929
+fall1.jpg,DenseNet121,1000,No Fall,0.6351
+fall2.jpg,DenseNet121,1000,No Fall,0.9076
+fall3.jpg,DenseNet121,1000,No Fall,0.8322
+fall4.jpg,DenseNet121,1000,No Fall,0.9957
+fall5.jpg,DenseNet121,1000,No Fall,0.7893
+no_fall1.jpg,DenseNet121,1000,Fall,0.9997
+no_fall2.jpg,DenseNet121,1000,Fall,0.9929
+no_fall3.jpg,DenseNet121,1000,Fall,0.9743
+no_fall4.jpg,DenseNet121,1000,Fall,0.9976
+no_fall5.jpg,DenseNet121,1000,Fall,0.9986
+fall1.jpg,DenseNet121,500,No Fall,0.9538
+fall2.jpg,DenseNet121,500,No Fall,0.9241
+fall3.jpg,DenseNet121,500,No Fall,0.5517
+fall4.jpg,DenseNet121,500,No Fall,0.9986
+fall5.jpg,DenseNet121,500,No Fall,0.8947
+no_fall1.jpg,DenseNet121,500,Fall,0.9883
+no_fall2.jpg,DenseNet121,500,Fall,0.9869
+no_fall3.jpg,DenseNet121,500,Fall,0.8930
+no_fall4.jpg,DenseNet121,500,Fall,0.8073
+no_fall5.jpg,DenseNet121,500,Fall,0.9616

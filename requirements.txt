@@ -1,0 +1,17 @@
+# Core deep learning (GPU supported)
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Image processing
+Pillow>=9.0.0
+
+# Data handling & metrics
+numpy>=1.22.0
+scikit-learn>=1.2.0
+
+# Visualization (optional but recommended)
+matplotlib>=3.6.0
+
+# Progress bars (optional but useful)
+tqdm>=4.65.0
