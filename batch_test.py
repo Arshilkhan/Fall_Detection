@@ -1,4 +1,3 @@
-# batch_inference_all_models_single_csv.py
 import os
 import csv
 import torch
@@ -13,9 +12,7 @@ from models import (
 )
 from transforms import eval_transform
 
-# -------------------------
 # Configuration
-# -------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(BASE_DIR, "models_saved")
 IMAGE_DIR = os.path.join(BASE_DIR, "test")   # unlabeled images
@@ -26,9 +23,6 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
-# -------------------------
-# Model registry
-# -------------------------
 MODELS = {
     "SimpleCNN": SimpleCNN,
     "ComplexCNN": ComplexCNN,
@@ -37,9 +31,6 @@ MODELS = {
     "DenseNet121": densenet121_model,
 }
 
-# -------------------------
-# Load model
-# -------------------------
 def load_model(model_class, weight_path):
     model = model_class()
     model.load_state_dict(torch.load(weight_path, map_location=DEVICE))
@@ -47,9 +38,6 @@ def load_model(model_class, weight_path):
     model.eval()
     return model
 
-# -------------------------
-# Main
-# -------------------------
 if __name__ == "__main__":
 
     print("\nRunning batch inference for ALL models...")
@@ -67,7 +55,6 @@ if __name__ == "__main__":
 
         for model_name, model_class in MODELS.items():
 
-            # Find saved weights
             weight_files = sorted(
                 f for f in os.listdir(MODEL_DIR)
                 if f.startswith(model_name) and f.endswith(".pth")

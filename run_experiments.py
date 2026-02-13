@@ -1,4 +1,3 @@
-# run_experiments.py
 import os
 import torch
 import matplotlib.pyplot as plt
@@ -24,22 +23,18 @@ from train_utils import (
     device
 )
 
-# -------------------------
-# Configuration
-# -------------------------
 ROOT = "archive"
 RESULTS_DIR = "results"
 MODEL_SAVE_DIR = "models"
 
 BATCH_SIZE = 16          # safer on Windows
-EPOCHS = 30              # as discussed
+EPOCHS = 30
 NUM_WORKERS = 0          # REQUIRED for stability
 PIN_MEMORY = False
 
 os.makedirs(RESULTS_DIR, exist_ok=True)
 os.makedirs(MODEL_SAVE_DIR, exist_ok=True)
 
-# Clean training sets only
 TRAIN_SETS = {
     "500": f"{ROOT}/train-500",
     "1000": f"{ROOT}/train-1000",
@@ -53,14 +48,8 @@ MODELS = {
     "DenseNet121": lambda: densenet121_model(),
 }
 
-# -------------------------
-# Storage for plots
-# -------------------------
 results = {}
 
-# -------------------------
-# Main (Windows safe)
-# -------------------------
 if __name__ == "__main__":
     freeze_support()
 
@@ -82,9 +71,6 @@ if __name__ == "__main__":
         for size, path in TRAIN_SETS.items():
             print(f"\nTraining with {size} images")
 
-            # -------------------------
-            # Datasets
-            # -------------------------
             train_ds = FallDataset(
                 f"{path}/images",
                 f"{path}/labels",
@@ -104,9 +90,6 @@ if __name__ == "__main__":
             print("Train class distribution:",
                   Counter([l for _, l in train_ds.samples]))
 
-            # -------------------------
-            # DataLoaders
-            # -------------------------
             train_loader = DataLoader(
                 train_ds,
                 batch_size=BATCH_SIZE,
@@ -127,9 +110,6 @@ if __name__ == "__main__":
                 pin_memory=PIN_MEMORY
             )
 
-            # -------------------------
-            # Model setup
-            # -------------------------
             model = model_fn().to(device)
             criterion = nn.CrossEntropyLoss()
             optimizer = optim.Adam(
@@ -137,16 +117,9 @@ if __name__ == "__main__":
                 lr=1e-3
             )
 
-            # -------------------------
-            # Training
-            # -------------------------
             for epoch in range(EPOCHS):
                 acc = train_epoch(model, train_loader, criterion, optimizer)
                 print(f"Epoch {epoch+1}/{EPOCHS} | Train Acc: {acc:.3f}")
-
-            # -------------------------
-            # Evaluation
-            # -------------------------
             val_acc, val_prec, val_rec = evaluate(model, val_loader)
 
             test_acc, test_prec, test_rec, y_true, y_pred, y_probs = evaluate(
@@ -159,9 +132,6 @@ if __name__ == "__main__":
             print(f"[VALID] Acc:{val_acc:.3f} Prec:{val_prec:.3f} Rec:{val_rec:.3f}")
             print(f"[TEST ] Acc:{test_acc:.3f} Prec:{test_prec:.3f} Rec:{test_rec:.3f}")
 
-            # -------------------------
-            # Confusion Matrix
-            # -------------------------
             save_confusion_matrix(
                 y_true=y_true,
                 y_pred=y_pred,
@@ -178,16 +148,10 @@ if __name__ == "__main__":
                 results_dir=RESULTS_DIR
             )
 
-            # -------------------------
-            # Save trained model
-            # -------------------------
             model_path = f"{MODEL_SAVE_DIR}/{model_name}_{size}.pth"
             torch.save(model.state_dict(), model_path)
             print(f"Model saved to: {model_path}")
 
-            # -------------------------
-            # Store results for plots
-            # -------------------------
             results[model_name]["train_sizes"].append(int(size))
             results[model_name]["val_acc"].append(val_acc)
             results[model_name]["val_prec"].append(val_prec)
@@ -196,15 +160,11 @@ if __name__ == "__main__":
             results[model_name]["test_prec"].append(test_prec)
             results[model_name]["test_rec"].append(test_rec)
 
-    # -------------------------
-    # Plot metrics
-    # -------------------------
     print("\nGenerating metric plots...")
 
     for model_name, data in results.items():
         sizes = data["train_sizes"]
 
-        # Accuracy
         plt.figure()
         plt.plot(sizes, data["test_acc"], marker="o", label="Test Accuracy")
         plt.plot(sizes, data["val_acc"], marker="o", linestyle="--", label="Val Accuracy")
@@ -215,8 +175,6 @@ if __name__ == "__main__":
         plt.grid(True)
         plt.savefig(f"{RESULTS_DIR}/{model_name}_accuracy.png")
         plt.close()
-
-        # Precision
         plt.figure()
         plt.plot(sizes, data["test_prec"], marker="o", label="Test Precision")
         plt.plot(sizes, data["val_prec"], marker="o", linestyle="--", label="Val Precision")
@@ -227,8 +185,6 @@ if __name__ == "__main__":
         plt.grid(True)
         plt.savefig(f"{RESULTS_DIR}/{model_name}_precision.png")
         plt.close()
-
-        # Recall
         plt.figure()
         plt.plot(sizes, data["test_rec"], marker="o", label="Test Recall")
         plt.plot(sizes, data["val_rec"], marker="o", linestyle="--", label="Val Recall")

@@ -56,6 +56,7 @@ class ComplexCNN(nn.Module):
         return self.classifier(self.features(x))
 
 # 3. RESNET18
+
 def resnet18_model(num_classes=2, freeze=True):
     model = models.resnet18(
         weights=models.ResNet18_Weights.IMAGENET1K_V1
@@ -68,6 +69,7 @@ def resnet18_model(num_classes=2, freeze=True):
     return model
 
 # 4. EFFICIENTNET-B0
+
 def efficientnet_b0_model(num_classes=2, freeze=True):
     model = models.efficientnet_b0(
         weights=models.EfficientNet_B0_Weights.IMAGENET1K_V1
@@ -82,6 +84,7 @@ def efficientnet_b0_model(num_classes=2, freeze=True):
     return model
 
 # 5. DENSENET121
+
 def densenet121_model(num_classes=2, freeze=True):
     model = models.densenet121(
         weights=models.DenseNet121_Weights.IMAGENET1K_V1
