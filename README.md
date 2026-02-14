@@ -56,7 +56,7 @@ Models were evaluated using:
 - F1-Score
 - ROC-AUC Curve
 
-## Applications:
+Applications:
 - Elderly monitoring systems
 - Smart hospitals
 - Home surveillance safety
